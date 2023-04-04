@@ -39,11 +39,6 @@ public class SoundManager : MonoBehaviour
         _soundSource.volume = IsSoundOn ? 1 : 0;
     }
 
-    public static float GetClipLength(Sound sound)
-    {
-        return SoundClipConfig.GetClip(sound).length;
-    }
-
     public static void Play(Sound sound, bool loop)
     {
         _instance._musicSource.loop = loop;

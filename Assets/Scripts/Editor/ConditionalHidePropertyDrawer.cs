@@ -35,8 +35,8 @@ public class ConditionalHidePropertyDrawer : PropertyDrawer
     private bool GetConditionalHideAttributeResult(ConditionalHideAttribute condHAtt, SerializedProperty property)
     {
         var enabled = true;
-        var propertyPath = property.propertyPath; //returns the property path of the property we want to apply the attribute to
-        var conditionPath = propertyPath.Replace(property.name, condHAtt.ConditionalSourceField); //changes the path to the conditionalsource property path
+        var propertyPath = property.propertyPath;
+        var conditionPath = propertyPath.Replace(property.name, condHAtt.ConditionalSourceField);
         var sourcePropertyValue = property.serializedObject.FindProperty(conditionPath);
  
         if (sourcePropertyValue != null)
@@ -45,7 +45,9 @@ public class ConditionalHidePropertyDrawer : PropertyDrawer
         }
         else
         {
-            Debug.LogWarning("Attempting to use a ConditionalHideAttribute but no matching SourcePropertyValue found in object: " + condHAtt.ConditionalSourceField);
+            Debug.LogWarning(
+                "Attempting to use a ConditionalHideAttribute but no matching SourcePropertyValue found in object: " +
+                condHAtt.ConditionalSourceField);
         }
  
         return enabled;

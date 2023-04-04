@@ -5,25 +5,80 @@ public class LevelsWindow : Window
 {
     [SerializeField] private Button _homeButton;
     [SerializeField] private LevelButton[] _levelButtons;
+    [SerializeField] private Button _upperButton;
+    [SerializeField] private Button _bottomButton;
+    [SerializeField] private LevelsAnimation _upLevelsAnimation;
+    [SerializeField] private LevelsAnimation _downLevelsAnimation;
+    [SerializeField] private GameObject[] _controlElements;
 
     private int _lastLevelInScreen;
 
-    public override void OnOpen(ViewParam viewParam)
+    protected override void OnOpen(ViewParam viewParam)
     {
         _homeButton.onClick.AddListener(OnHomeButtonClick);
+        _upperButton.onClick.AddListener(OnUpperButtonClick);
+        _bottomButton.onClick.AddListener(OnBottomButtonClick);
         
-        var currentLevel = LevelManager.CurrentLevelIndex;
+        var currentLevel = LevelManager.PassedLevelsCount + 1;
 
-        var startLevel = currentLevel % 9 + 9 * currentLevel / 9;
-        _lastLevelInScreen = startLevel + 9;
+        var startLevel = 8 * Mathf.FloorToInt(currentLevel / 9f) + 1;
+        _lastLevelInScreen = startLevel + 8;
 
-        for (var i = startLevel; i < startLevel + 9; i++)
+        for (var i = startLevel; i <= _lastLevelInScreen; i++)
         {
-            _levelButtons[i].Init(i + 1);
-            _levelButtons[i].Clicked += OnLevelClicked;
+            _levelButtons[i - startLevel].Init(i);
+            _levelButtons[i - startLevel].Clicked += OnLevelClicked;
         }
         
-        UpdateButtons();
+        UpdateLevelButtons();
+        
+        UpdateLevelsControlButtons();
+    }
+
+    private async void OnUpperButtonClick()
+    {
+        foreach (var controlElement in _controlElements) 
+            controlElement.SetActive(false);
+        
+        await _upLevelsAnimation.Play(UpdateInfo);
+        
+        foreach (var controlElement in _controlElements) 
+            controlElement.SetActive(true);
+        
+        UpdateLevelsControlButtons();
+
+        void UpdateInfo()
+        {
+            _lastLevelInScreen += 8;
+
+            foreach (var button in _levelButtons)
+                button.Init(button.LevelNumber + 8);
+            
+            UpdateLevelButtons();
+        }
+    }
+
+    private async void OnBottomButtonClick()
+    {
+        foreach (var controlElement in _controlElements) 
+            controlElement.SetActive(false);
+        
+        await _downLevelsAnimation.Play(UpdateInfo);
+        
+        foreach (var controlElement in _controlElements) 
+            controlElement.SetActive(true);
+        
+        UpdateLevelsControlButtons();
+
+        void UpdateInfo()
+        {
+            _lastLevelInScreen -= 8;
+
+            foreach (var button in _levelButtons)
+                button.Init(button.LevelNumber - 8);
+            
+            UpdateLevelButtons();
+        }
     }
 
     private void OnHomeButtonClick()
@@ -35,20 +90,12 @@ public class LevelsWindow : Window
     {
         LevelManager.CompleteLevel();
         
-        UpdateButtons();
-
-        if (LevelManager.PassedLevelsCount - 1 == _lastLevelInScreen)
-        {
-            _lastLevelInScreen += 9;
-
-            foreach (var button in _levelButtons)
-                button.Init(button.LevelNumber + 9);
-            
-            UpdateButtons();
-        }
+        UpdateLevelButtons();
+        
+        UpdateLevelsControlButtons();
     }
 
-    private void UpdateButtons()
+    private void UpdateLevelButtons()
     {
         foreach (var button in _levelButtons)
         {
@@ -63,9 +110,17 @@ public class LevelsWindow : Window
         }
     }
 
-    public override void OnClose()
+    private void UpdateLevelsControlButtons()
+    {
+        _upperButton.gameObject.SetActive(LevelManager.PassedLevelsCount >= _lastLevelInScreen && _lastLevelInScreen < LevelManager.LevelsCount);
+        _bottomButton.gameObject.SetActive(_lastLevelInScreen > 9);
+    }
+
+    protected override void OnClose()
     {
         _homeButton.onClick.RemoveListener(OnHomeButtonClick);
+        _upperButton.onClick.RemoveListener(OnUpperButtonClick);
+        _bottomButton.onClick.RemoveListener(OnBottomButtonClick);
         
         foreach (var button in _levelButtons)
         {

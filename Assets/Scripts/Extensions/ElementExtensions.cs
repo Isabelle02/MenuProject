@@ -15,4 +15,9 @@ public static class ElementExtensions
             .SetEase(Ease.InOutQuad)
             .AsyncWaitForCompletion().AsUniTask();
     }
+
+    public static void SetLocalPosition(this Transform transform, Vector3 position)
+    {
+        transform.localPosition = position;
+    }
 }

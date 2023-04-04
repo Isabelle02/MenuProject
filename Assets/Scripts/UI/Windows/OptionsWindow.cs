@@ -6,8 +6,8 @@ public class OptionsWindow : Window
     [SerializeField] private Toggle _musicToggle;
     [SerializeField] private Toggle _sounndToggle;
     [SerializeField] private Button _closeButton;
-    
-    public override void OnOpen(ViewParam viewParam)
+
+    protected override void OnOpen(ViewParam viewParam)
     {
         _musicToggle.isOn = !SoundManager.IsMusicOn;
         _sounndToggle.isOn = !SoundManager.IsSoundOn;
@@ -32,7 +32,7 @@ public class OptionsWindow : Window
         WindowManager.Open<MainMenuWindow>();
     }
 
-    public override void OnClose()
+    protected override void OnClose()
     {
         _closeButton.onClick.RemoveListener(OnCLoseButtonClick);
     }

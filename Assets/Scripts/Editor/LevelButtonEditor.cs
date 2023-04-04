@@ -1,9 +1,8 @@
 ﻿#if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.UI;
 
 [CustomEditor(typeof(LevelButton))]
-public class LevelButtonEditor : ButtonEditor
+public class LevelButtonEditor : SoundButtonEditor
 {
     private SerializedProperty _locked;
     private SerializedProperty _unlocked;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelButton : Button
+public class LevelButton : SoundButton
 {
     [SerializeField] private GameObject _locked;
     [SerializeField] private GameObject _unlocked;
@@ -12,7 +12,7 @@ public class LevelButton : Button
     [SerializeField] private Text _levelNumberText;
     [SerializeField] private HorizontalLayoutGroup _starsLayout;
 
-    private List<StarElement> _stars = new();
+    private readonly List<StarElement> _stars = new();
 
     private Dictionary<LevelState, GameObject> _states;
 
@@ -53,7 +53,7 @@ public class LevelButton : Button
 
     public void Init(int levelNumber)
     {
-        IsComingSoon = LevelManager.LevelsCount < LevelNumber;
+        IsComingSoon = LevelManager.LevelsCount < levelNumber;
 
         LevelNumber = levelNumber;
         _levelNumberText.text = LevelNumber.ToString();

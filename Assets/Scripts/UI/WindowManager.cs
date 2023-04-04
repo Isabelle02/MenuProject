@@ -11,8 +11,6 @@ public class WindowManager : MonoBehaviour
     private readonly Stack<Window> _windowStack = new();
     private Window _curWindow;
 
-    public static Transform Transform => _instance.transform;
-
     private void Awake()
     {
         _instance = this;

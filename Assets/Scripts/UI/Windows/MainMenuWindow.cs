@@ -6,7 +6,7 @@ public class MainMenuWindow : Window
     [SerializeField] private Button _playButton;
     [SerializeField] private Button _optionsButton;
 
-    public override void OnOpen(ViewParam viewParam)
+    protected override void OnOpen(ViewParam viewParam)
     {
         _playButton.onClick.AddListener(OnPlayButtonClick);
         _optionsButton.onClick.AddListener(OnOptionsButtonCLick);
@@ -22,7 +22,7 @@ public class MainMenuWindow : Window
         WindowManager.Open<OptionsWindow>();
     }
 
-    public override void OnClose()
+    protected override void OnClose()
     {
         _playButton.onClick.RemoveListener(OnPlayButtonClick);
         _optionsButton.onClick.RemoveListener(OnOptionsButtonCLick);

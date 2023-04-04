@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1434974588839810550}
   - component: {fileID: 2122182524312483754}
   - component: {fileID: 2744133255705868472}
+  - component: {fileID: 8010207953721964761}
   m_Layer: 5
   m_Name: MainMenuWindow
   m_TagString: Untagged
@@ -91,10 +92,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isAnimated: 1
-  _animationPanel: {fileID: 3401934847834253566}
-  _fadeGroup: {fileID: 2744133255705868472}
-  _playButton: {fileID: 3515379972825419789}
-  _optionsButton: {fileID: 3515379972140921866}
+  _animation: {fileID: 8010207953721964761}
+  _playButton: {fileID: 5993488759251299424}
+  _optionsButton: {fileID: 6837019498855935008}
 --- !u!114 &2744133255705868472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +118,20 @@ MonoBehaviour:
   - {fileID: 3515379973209693320}
   - {fileID: 3515379972350004214}
   _fadeGroups: []
+--- !u!114 &8010207953721964761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122182524312483755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2604b71bd8cd42aaadcf2be9e081c159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeGroup: {fileID: 2744133255705868472}
+  _scaleContainer: {fileID: 3401934847834253566}
 --- !u!1 &3515379972140921860
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +143,7 @@ GameObject:
   - component: {fileID: 3515379972140921867}
   - component: {fileID: 3515379972140921864}
   - component: {fileID: 3515379972140921865}
-  - component: {fileID: 3515379972140921866}
+  - component: {fileID: 6837019498855935008}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -195,7 +209,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3515379972140921866
+--- !u!114 &6837019498855935008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,7 +218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3515379972140921860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fc3c3aca7c24cb39c0bc30ed4c535f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -239,6 +253,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  _clickSound: 1
 --- !u!1 &3515379972145465600
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +535,7 @@ GameObject:
   - component: {fileID: 3515379972825419790}
   - component: {fileID: 3515379972825419795}
   - component: {fileID: 3515379972825419788}
-  - component: {fileID: 3515379972825419789}
+  - component: {fileID: 5993488759251299424}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -587,7 +602,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3515379972825419789
+--- !u!114 &5993488759251299424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -596,7 +611,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3515379972825419791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fc3c3aca7c24cb39c0bc30ed4c535f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -631,6 +646,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  _clickSound: 1
 --- !u!1 &3515379973209693322
 GameObject:
   m_ObjectHideFlags: 0

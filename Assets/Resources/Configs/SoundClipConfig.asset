@@ -15,6 +15,6 @@ MonoBehaviour:
   _sounds:
     _elements:
     - _key: 0
-      _value: {fileID: 0}
-    - _key: 0
-      _value: {fileID: 0}
+      _value: {fileID: 8300000, guid: f2101ab232bc57341b3f8528e1e6e568, type: 3}
+    - _key: 1
+      _value: {fileID: 8300000, guid: cf3fe129c692dde418eb2d25c6cd62bc, type: 3}

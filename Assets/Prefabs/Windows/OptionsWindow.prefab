@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1279456125836977126}
   - component: {fileID: 1279456125836977147}
   - component: {fileID: 1279456125836977144}
-  - component: {fileID: 1279456125836977145}
+  - component: {fileID: 3469326253403709112}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1279456125836977145
+--- !u!114 &3469326253403709112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1279456125836977127}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fc3c3aca7c24cb39c0bc30ed4c535f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -435,6 +435,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  _clickSound: 1
 --- !u!1 &1279456125881113192
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1279456125881113195}
-  - component: {fileID: 1279456125881113194}
+  - component: {fileID: 8865249458087380630}
   m_Layer: 5
   m_Name: SoundToggle
   m_TagString: Untagged
@@ -474,7 +475,7 @@ RectTransform:
   m_AnchoredPosition: {x: 3.2, y: -19.8}
   m_SizeDelta: {x: 103.2, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1279456125881113194
+--- !u!114 &8865249458087380630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -483,7 +484,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1279456125881113192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d8db1ef0a044ce5968c8c27bcb04401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -522,6 +523,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+  _clickSound: 1
 --- !u!1 &1279456126134674341
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1279456126373834698}
-  - component: {fileID: 1279456126373834701}
+  - component: {fileID: 6873632773935533967}
   m_Layer: 5
   m_Name: MusicToggle
   m_TagString: Untagged
@@ -908,7 +910,7 @@ RectTransform:
   m_AnchoredPosition: {x: 3.2, y: 12.3}
   m_SizeDelta: {x: 103.2, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1279456126373834701
+--- !u!114 &6873632773935533967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -917,7 +919,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1279456126373834699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d8db1ef0a044ce5968c8c27bcb04401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -956,6 +958,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+  _clickSound: 1
 --- !u!1 &1279456126543313389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,6 +1166,7 @@ GameObject:
   - component: {fileID: 7155535737349495262}
   - component: {fileID: 7913983281731337090}
   - component: {fileID: 6636570872498098745}
+  - component: {fileID: 3033145299347789706}
   m_Layer: 5
   m_Name: OptionsWindow
   m_TagString: Untagged
@@ -1205,11 +1209,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isAnimated: 1
-  _animationPanel: {fileID: 6886432253337461974}
-  _fadeGroup: {fileID: 6636570872498098745}
-  _musicToggle: {fileID: 1279456126373834701}
-  _sounndToggle: {fileID: 1279456125881113194}
-  _closeButton: {fileID: 1279456125836977145}
+  _animation: {fileID: 3033145299347789706}
+  _musicToggle: {fileID: 6873632773935533967}
+  _sounndToggle: {fileID: 8865249458087380630}
+  _closeButton: {fileID: 3469326253403709112}
 --- !u!114 &6636570872498098745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,6 +1239,20 @@ MonoBehaviour:
   - {fileID: 1279456126543313391}
   - {fileID: 1279456126135484908}
   _fadeGroups: []
+--- !u!114 &3033145299347789706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7913983281731337091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2604b71bd8cd42aaadcf2be9e081c159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeGroup: {fileID: 6636570872498098745}
+  _scaleContainer: {fileID: 6886432253337461974}
 --- !u!1 &8536196630472754585
 GameObject:
   m_ObjectHideFlags: 0

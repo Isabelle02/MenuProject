@@ -352,6 +352,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  _clickSound: 1
   _locked: {fileID: 6514280160872932384}
   _unlocked: {fileID: 6514280161684704456}
   _passed: {fileID: 6514280160707561150}

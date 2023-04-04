@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
 {
-    private static LevelManager _instance;
-    
     private static string _levelStatsMapFIleName;
 
-    private const string PlayerSpriteIndexKey = "PlayerSpriteIndex";
     private const string PassedLevelsKey = "PassedLevels";
 
     public static int LevelsCount => 16;
@@ -19,19 +14,18 @@ public class LevelManager : MonoBehaviour
     public static int PassedLevelsCount
     {
         get => PlayerPrefs.GetInt(PassedLevelsKey, 0);
-        set => PlayerPrefs.SetInt(PassedLevelsKey, value);
+        private set => PlayerPrefs.SetInt(PassedLevelsKey, value);
     }
 
-    public static Dictionary<int, int> Rewards = new();
+    public static readonly Dictionary<int, int> Rewards = new();
 
     private void Awake()
     {
-        _instance = this;
         DontDestroyOnLoad(this);
 
         for (var i = 0; i < PassedLevelsCount; i++)
         {
-            Rewards.Add(0, Random.Range(0, 4));
+            Rewards.Add(i, Random.Range(0, 4));
         } 
     }
 
